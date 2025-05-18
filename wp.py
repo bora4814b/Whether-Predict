@@ -1,13 +1,14 @@
 import streamlit as st
-import pickle
+import pickle 
 
-st.title("Weather prediction App..")
-pn=st.number_input('Enter Precipitation')
-maxt=st.number_input('Enter max Temp')
-mint=st.number_input('Enter mix Temp')
-wind=st.number_input("ENter Win speed")
-button=st.button('Predict')
+
+st.title("Wheather Pridiction App")
+pn=st.number_input("Enter Presipitation")
+maxt=st.number_input("Enter Maximum Temprature")
+mint=st.number_input("Enter Minimum Temprature")
+ws=st.number_input("Enter wind speed")
+button=st.button("Predict")
 if button:
-    lr=pickle.load(open('wp.pkl','rb'))
-    res=lr.predict([[pn,maxt,mint,wind]])[0]
-    st.markdown(f"Today Weather Situatiom: {res}")
+    lr=pickle.load(open("wp.pkl","rb"))
+    res=lr.predict([[pn,maxt,mint,ws]])[0]
+    st.markdown(f"Today wheather situation : {res}")
